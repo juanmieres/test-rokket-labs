@@ -1,0 +1,38 @@
+version: "3"
+services:
+  rokket-frontend:
+    container_name: rokket-app
+    build: ./frontend
+    stdin_open: true
+    ports: 
+      - "3000:3000"
+    networks:
+      - rokket-net
+    volumes:
+      - ./frontend:/usr/src/app
+  rokket-backend:
+    container_name: rokket-api
+    build: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - rokket-net
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/usr/src/app
+  db:
+    container_name: rokket-db
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27017:27017"
+    networks:
+      - rokket-net
+    # volumes:
+    #   - mongo-data:/data/db
+networks:
+  rokket-net:
+    driver: bridge
+# volumes:
+#   mongo-data:
+#     driver: local

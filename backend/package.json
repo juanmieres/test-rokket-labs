@@ -1,0 +1,21 @@
+{
+  "name": "backend-rokket-labs",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "Juan Mieres Solis",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
